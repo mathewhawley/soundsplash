@@ -1,4 +1,7 @@
 class TracksController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   def new
     @track = Track.new
   end

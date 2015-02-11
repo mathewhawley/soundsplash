@@ -9,8 +9,8 @@
   <li>Last signed in: <%= @user.last_sign_in_at %></li>
 </ul>
 
-<% if user_signed_in? %>
-  <p><%= link_to 'Edit My Profile', edit_user_registration_path(current_user) %></p>
+<% if user_signed_in? && current_user.id == @user.id %>
+  <p><%= link_to 'Edit My Profile', edit_user_registration_path(@user) %></p>
 <% end %>
 
 <div class="user-tracks">
