@@ -37,7 +37,7 @@
       <p><%= link_to comment.user.username, user_path(comment.user) %> says:</p>
       <p><%= comment.created_at.strftime('%I:%M %p, %d %B %Y') %></p>
       <p><%= comment.content %></p>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.id == comment.user.id %>
         <p><%= link_to 'Delete', comment_path(comment), method: :delete %></p>
       <% end %>
     </div>

@@ -34,7 +34,7 @@ gem 'rails_12factor', group: :production
 
 gem 'devise'
 gem 'carrierwave', '0.9.0'
-gem 'cancancan', '~> 1.10'
+gem 'obscenity'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
