@@ -21,8 +21,10 @@
       <p>Uploaded on: <%= track.created_at.strftime('%d %B %Y') %></p>
       <p><%= image_tag track.track_image.url %></p>
       <%= audio_tag track.track, controls: true %>
-      <p><%= link_to 'Delete', track_path(track), method: :delete %></p>
-      <p><%= link_to 'Edit', edit_track_path(track) %></p>
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <p><%= link_to 'Delete', track_path(track), method: :delete %></p>
+        <p><%= link_to 'Edit', edit_track_path(track) %></p>
+      <% end %>
       <p><%= link_to "Comments (#{track.comments.count})", track_path(track) %></p>
     </div>
   <% end %>
