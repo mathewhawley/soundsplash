@@ -9,6 +9,10 @@
   <li>Last signed in: <%= @user.last_sign_in_at %></li>
 </ul>
 
+<% if user_signed_in? %>
+  <p><%= link_to 'Edit My Profile', edit_user_registration_path(current_user) %></p>
+<% end %>
+
 <div class="user-tracks">
   <h2>Tracks</h2>
   <% @user.tracks.order('created_at DESC').each do |track| %>
