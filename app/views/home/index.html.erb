@@ -1,0 +1,24 @@
+<h1>Welcome to SoundSplash</h1>
+
+<div>
+  <h2>Latest tracks</h2>
+  <% @tracks.each do |track| %>
+    <p><%= link_to track.user.username, user_path(track.user) %></p>
+    <h4><%= link_to track.name, track_path(track) %></h4>
+    <p>Uploaded on: <%= track.created_at.to_formatted_s(:short) %></p>
+    <p><%= image_tag track.track_image.url %></p>
+    <%= audio_tag track.track, controls: true %>
+    <p><%= link_to "Comments (#{track.comments.count})", track_path(track) %></p>
+  <% end %>
+</div>
+
+<div>
+  <h2>Users</h2>
+  <% @users.each do |user| %>
+    <%= image_tag user.profile_picture.url %>
+    <h4><%= link_to user.username, user_path(user) %></h4>
+    <p>Member since: <%= user.created_at.to_formatted_s(:short) %></p>
+    <p>Last active: <%= user.last_sign_in_at.to_formatted_s(:short) %></p>
+    <p>Number of uploads: <%= user.tracks.count %></p>
+  <% end %>
+</div>

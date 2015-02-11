@@ -1,0 +1,25 @@
+<h2><%= @user.username %></h2>
+
+<ul>
+  <li><%= image_tag @user.profile_picture.url, width: '180' %></li>
+  <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
+  <li>About: <%= @user.about %></li>
+  <li>Email: <%= @user.email %></li>
+  <li>Joined: <%= @user.created_at %></li>
+  <li>Last signed in: <%= @user.last_sign_in_at %></li>
+</ul>
+
+<div class="user-tracks">
+  <h2>Tracks</h2>
+  <% @user.tracks.order('created_at DESC').each do |track| %>
+    <div class="track">
+      <p><%= link_to track.name, track_path(track) %></p>
+      <p>Uploaded on: <%= track.created_at.to_formatted_s(:short) %></p>
+      <p><%= image_tag track.track_image.url %></p>
+      <%= audio_tag track.track, controls: true %>
+      <p><%= link_to 'Delete', track_path(track), method: :delete %></p>
+      <p><%= link_to 'Edit', edit_track_path(track) %></p>
+      <p><%= link_to "Comments (#{track.comments.count})", track_path(track) %></p>
+    </div>
+  <% end %>
+</div>

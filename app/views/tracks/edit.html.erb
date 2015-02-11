@@ -1,0 +1,14 @@
+<h3>Edit <%= @track.name %></h3>
+
+<%= form_for @track do |f| %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+  
+  <p><%= f.label :track %></p>
+  <p><%= f.file_field :track %></p>
+
+  <p><%= f.label :track_image %></p>
+  <p><%= f.file_field :track_image %></p>
+
+  <p><%= f.submit 'Update Track' %></p>
+<% end %>
