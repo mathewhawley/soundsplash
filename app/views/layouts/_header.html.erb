@@ -3,11 +3,11 @@
 <header>
   <h1 class="logo"><%= link_to 'SoundSplash', root_path %></h1>
   <% if user_signed_in? %>
-    <p class="session-status">Logged in as <%= link_to current_user.username, user_path(current_user) %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
-    <p class="button"><%= link_to('My Profile', user_path(current_user)) %></p>
+    <p>Logged in as <%= link_to current_user.username, user_path(current_user) %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+    <p><%= link_to('My Profile', user_path(current_user)) %></p>
   <% else %>
     <p><%= link_to('Login', new_user_session_path) %></p>
-    <p class="button"><%= link_to('Register', new_user_registration_path) %></p>
+    <p><%= link_to('Register', new_user_registration_path) %></p>
   <% end %>
-  <p class="button"><%= link_to 'Upload Track', new_track_path %></p>
+  <p class="button radius"><%= link_to 'Upload Track', new_track_path %></p>
 </header>
