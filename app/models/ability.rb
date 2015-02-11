@@ -8,8 +8,11 @@ class Ability
     if user.admin?
         can :manage, :all
     else
-        can :manage, Comment, user_id: user.id
+        can :read, :all
     end
+
+    can [:new, :create, :edit, :update, :destroy], Comment, user_id: user.id
+    can [:new, :create, :edit, :update, :destroy], Track, user_id: user.id
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
