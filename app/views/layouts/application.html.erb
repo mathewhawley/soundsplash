@@ -7,13 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  
   <%= render partial: '/layouts/header' %>
+  <div class="wrapper">
 
-  <%= yield %>
+    <%= yield %>
 
-  <%= render partial: '/layouts/footer' %>
+    <%= render partial: '/layouts/footer' %>
+  </div>
 </body>
 </html>

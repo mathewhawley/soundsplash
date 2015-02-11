@@ -1,13 +1,13 @@
+<!-- <p class="notice"><%#= notice %></p>
+<p class="alert"><%#= alert %></p> -->
 <header>
-  <h1><%= link_to 'SoundSplash', root_path %></h1>
-  <ul>
-    <% if user_signed_in? %>
-      <li>Logged in as <%= link_to current_user.username, user_path(current_user) %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-      <li><%= link_to('My Profile', user_path(current_user)) %></li>
-    <% else %>
-      <li><%= link_to('Login', new_user_session_path) %></li>
-      <li><%= link_to('Register', new_user_registration_path) %></li>
-    <% end %>
-    <li><%= link_to 'Upload Track', new_track_path %></li>
-  </ul>
+  <h1 class="logo"><%= link_to 'SoundSplash', root_path %></h1>
+  <% if user_signed_in? %>
+    <p class="session-status">Logged in as <%= link_to current_user.username, user_path(current_user) %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></p>
+    <p class="button"><%= link_to('My Profile', user_path(current_user)) %></p>
+  <% else %>
+    <p><%= link_to('Login', new_user_session_path) %></p>
+    <p class="button"><%= link_to('Register', new_user_registration_path) %></p>
+  <% end %>
+  <p class="button"><%= link_to 'Upload Track', new_track_path %></p>
 </header>
