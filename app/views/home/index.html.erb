@@ -1,7 +1,7 @@
 <h1>Welcome to SoundSplash</h1>
 
 <div>
-  <h2>Latest tracks</h2>
+  <h2>All Tracks</h2>
   <% @tracks.each do |track| %>
     <p><%= link_to track.user.username, user_path(track.user) %></p>
     <h4><%= link_to track.name, track_path(track) %></h4>
