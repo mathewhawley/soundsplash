@@ -36,6 +36,7 @@ gem 'devise'
 gem 'carrierwave', '0.9.0'
 gem 'obscenity'
 gem 'cancancan', '~> 1.10'
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

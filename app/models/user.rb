@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :profile_picture, ProfilePictureUploader
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end
+
+  def admin?
+    role == 'admin'
+  end
 end
