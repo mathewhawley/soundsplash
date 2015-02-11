@@ -1,6 +1,5 @@
 class TracksController < ApplicationController
 
-  authorize_resource
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def new
