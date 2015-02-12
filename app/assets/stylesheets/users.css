@@ -58,3 +58,9 @@
   color: #adadad;
   font-size: .9rem;
 }
+
+.user-track-name a {
+  margin-bottom: .3rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
+}
