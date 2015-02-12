@@ -11,6 +11,10 @@
   border-bottom: 1px #666 solid;
 }
 
+.row .user-pic {
+  padding-right: 0;
+}
+
 .user-single li {
-  color: #c4c4c4;
+  color: #adadad;
 }

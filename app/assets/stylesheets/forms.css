@@ -1,0 +1,18 @@
+.form-area {
+  padding: 1.5rem;
+  width: 300px;
+  margin: 0  auto 0 .5rem;
+}
+
+.field label {
+  color: #adadad;
+}
+
+.button {
+  height: 2.5rem;
+}
+
+.actions .button {
+  padding: 0 2rem;
+  margin: .75rem 0;
+}

@@ -27,7 +27,7 @@
         <% @users.each do |user| %>
           <div class="user-single">
             <div class="row">
-              <li class="large-3 column"><%= link_to (image_tag user.profile_picture.url), user_path(user) %></li>
+              <li class="large-3 column user-pic"><%= link_to (image_tag user.profile_picture.url), user_path(user) %></li>
               <li class="large-9 column"><%= link_to user.username, user_path(user) %></li>
               <li class="large-9 column">Member since: <%= user.created_at.strftime('%d %B %Y') %></li>
               <li class="large-9 column">Last active: <%= user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y') %></li>
