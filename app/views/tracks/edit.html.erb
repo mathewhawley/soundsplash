@@ -1,14 +1,25 @@
-<h3>Edit <%= @track.name %></h3>
+<div class="form-area">
+  <h3>Edit '<%= @track.name %>'</h3>
 
-<%= form_for @track do |f| %>
-  <p><%= f.label :name %></p>
-  <p><%= f.text_field :name %></p>
-  
-  <p><%= f.label :track %></p>
-  <p><%= f.file_field :track %></p>
+  <%= form_for @track do |f| %>
 
-  <p><%= f.label :track_image %></p>
-  <p><%= f.file_field :track_image %></p>
-
-  <p><%= f.submit 'Update Track' %></p>
-<% end %>
+    <div class="field">
+      <p><%= f.label :name %></p>
+      <p><%= f.text_field :name %></p>
+    </div>
+    
+    <div class="field">
+      <p><%= f.label :track %></p>
+      <p><%= f.file_field :track %></p>
+    </div>
+    
+    <div class="field">
+      <p><%= f.label :track_image %></p>
+      <p><%= f.file_field :track_image %></p>
+    </div>
+    
+    <div class="actions">
+      <p><%= f.submit 'Update Track', :class => "button radius" %></p>
+    </div>
+  <% end %>
+</div>
