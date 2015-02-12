@@ -1,31 +1,38 @@
-<h2><%= @user.username %></h2>
+<div class="cover-image">
+  <%= image_tag @user.profile_picture.url, :class => "profile-picture" %>
+</div>
 
-<ul>
-  <li><%= image_tag @user.profile_picture.url, width: '180' %></li>
-  <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
-  <li>About: <%= @user.about %></li>
-  <li>Email: <%= @user.email %></li>
-  <li>Joined: <%= @user.created_at.strftime('%d %B %Y') %></li>
-  <li>Last active: <%= @user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y') %></li>
-</ul>
-
-<% if user_signed_in? && current_user.id == @user.id %>
-  <p><%= link_to 'Edit My Profile', edit_user_registration_path(@user) %></p>
-<% end %>
-
-<div class="user-tracks">
-  <h2>Tracks</h2>
-  <% @user.tracks.order('created_at DESC').each do |track| %>
-    <div class="track">
-      <p><%= link_to track.name, track_path(track) %></p>
-      <p>Uploaded on: <%= track.created_at.strftime('%d %B %Y') %></p>
-      <p><%= image_tag track.track_image.url %></p>
-      <%= audio_tag track.track, controls: true %>
-      <% if can? :destroy && :update, track %>
-        <p><%= link_to 'Delete', track_path(track), method: :delete %></p>
-        <p><%= link_to 'Edit', edit_track_path(track) %></p>
+<div class="user-profile-wrapper">
+  <div class="row">
+    <div class="large-4 column user-info">
+    <h3><%= @user.username %></h3>
+      <p><%= @user.email %></p>
+      <p>Joined: <%= @user.created_at.strftime('%d %B %Y') %></p>
+      <p>Last active: <%= @user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y') %></p>
+      <p><%= @user.about %></p>
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <p class="edit-profile-button"><%= link_to 'Edit My Profile', edit_user_registration_path(@user), :class => 'button radius' %></p>
       <% end %>
-      <p><%= link_to "Comments (#{track.comments.count})", track_path(track) %></p>
     </div>
-  <% end %>
+
+    <div class="large-8 column">
+      <h3>Tracks</h3>
+      <ul class="track-list">
+        <% @user.tracks.order('created_at DESC').each do |track| %>
+          <div class="track-single">
+            <div class="row">
+              <li class="large-3 column"><%= image_tag track.track_image.url %></li>
+              <li class="large-9 column"><%= link_to track.name, track_path(track) %></li>
+              <li class="large-9 column"><%= track.created_at.strftime('%d %B %Y') %></li>
+              <li class="large-9 column"><%= audio_tag track.track, controls: true %></li>
+              <% if can? :destroy && :update, track %>
+                <li class="large-9 column"><%= link_to 'Delete', track_path(track), method: :delete %> | <%= link_to 'Edit', edit_track_path(track) %></li>
+              <% end %>
+              <li class="large-9 column"><%= link_to "Comments (#{track.comments.count})", track_path(track) %></li>
+            </div>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>

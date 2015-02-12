@@ -10,6 +10,7 @@
 
 .button {
   height: 2.5rem;
+  letter-spacing: .03rem;
 }
 
 .actions .button {
@@ -24,4 +25,14 @@
 
 .about-text {
   margin-bottom: 1rem;
+}
+
+.edit-profile-button a {
+  padding: .7rem 2rem 0;
+  font-weight: lighter;
+}
+
+.edit-profile-button {
+  display: inline-block;
+  margin: 0;
 }
