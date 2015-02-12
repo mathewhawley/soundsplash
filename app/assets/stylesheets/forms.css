@@ -1,7 +1,7 @@
 .form-area {
   padding: 1.5rem;
-  width: 300px;
-  margin: 0  auto 0 .5rem;
+  width: 375px;
+  margin: 0 auto;
 }
 
 .field label {
@@ -14,5 +14,14 @@
 
 .actions .button {
   padding: 0 2rem;
-  margin: .75rem 0;
+  margin: .5rem 0 .75rem 0;
+  font-weight: lighter;
+}
+
+.field label {
+  margin-bottom: -1rem;
+}
+
+.about-text {
+  margin-bottom: 1rem;
 }
