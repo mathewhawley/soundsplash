@@ -4,28 +4,38 @@
 
 <div class="index-wrapper">
   <div class="row">
-    <div class="large-7 column">
-      <h2>All Tracks</h2>
-      <% @tracks.each do |track| %>
-        <p><%= link_to track.user.username, user_path(track.user) %></p>
-        <h4><%= link_to track.name, track_path(track) %></h4>
-        <p>Uploaded on: <%= track.created_at.strftime('%d %B %Y') %></p>
-        <%= image_tag track.track_image.url, :class => 'track-image' %>
-        <%= audio_tag track.track, controls: true %>
-        <p><%= link_to "Comments (#{track.comments.count})", track_path(track) %></p>
-      <% end %>
+    <div class="large-8 column">
+      <h3>All Tracks</h3>
+      <ul class="track-list">
+        <% @tracks.each do |track| %>
+          <div class="track-single">
+            <div class="row">
+              <li class="large-3 column"><%= link_to (image_tag track.track_image.url), track_path(track) %></li>
+              <li class="large-9 column track-user"><%= link_to track.user.username, user_path(track.user) %></li>
+              <li class="large-9 column track-name"><%= link_to track.name, track_path(track) %></li>
+              <li class="large-9 column"><%= audio_tag track.track, controls: true %></li>
+              <li class="large-9 column"><%= track.created_at.strftime('%d %B %Y') %>  |  <%= link_to "Comments (#{track.comments.count})", track_path(track) %></li>
+            </div>
+          </div>
+        <% end %>
+      </ul>
     </div>
   
-
-    <div class="large-5 column">
-      <h2>Users</h2>
-      <% @users.each do |user| %>
-        <%= image_tag user.profile_picture.url, :class => 'user-image' %>
-        <h4><%= link_to user.username, user_path(user) %></h4>
-        <p>Member since: <%= user.created_at.strftime('%d %B %Y') %></p>
-        <p>Last active: <%= user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y') %></p>
-        <p>Number of uploads: <%= user.tracks.count %></p>
-      <% end %>
+    <div class="large-4 column">
+      <h3>Users</h3>
+      <ul class="user-list">
+        <% @users.each do |user| %>
+          <div class="user-single">
+            <div class="row">
+              <li class="large-3 column"><%= link_to (image_tag user.profile_picture.url), user_path(user) %></li>
+              <li class="large-9 column"><%= link_to user.username, user_path(user) %></li>
+              <li class="large-9 column">Member since: <%= user.created_at.strftime('%d %B %Y') %></li>
+              <li class="large-9 column">Last active: <%= user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y') %></li>
+              <li class="large-9 column">Number of uploads: <%= user.tracks.count %></li>
+            </div>
+          </div>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
