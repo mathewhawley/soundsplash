@@ -1,12 +1,14 @@
-<div class="track-show-wrapper">
-  <div>
-    <div>
-      <%= image_tag @track.track_image.url %>
-      <h2><%= @track.name %></h2>
-      <%= audio_tag @track.track, controls: true %>
+<div class="track-header">
+  <div class="track-hero">
+    <%= image_tag @track.track_image.url %>
+    <h2><%= @track.name %></h2>
+    <div class="large-player">
+      <%= audio_tag @track.track, controls: true, :class => "track-info" %>
     </div>
   </div>
+</div>
 
+<div class="track-show-wrapper">
   <div class="row">
     <div class="large-4 column user-profile-pic">
       <%= link_to (image_tag @track.user.profile_picture.url), user_path(@track.user), :class => "user-pic-track-show" %>
@@ -22,7 +24,9 @@
             <%= image_tag @user.profile_picture.url %>
             </div>
           <% else %>
-            <div class="large-2 column"></div>
+            <div class="large-2 column">
+              <div class="placeholder-image"></div>
+            </div>
           <% end %>
           <div class="large-10 column comment-field-margin">
             <%= form_for @comment do |f| %>

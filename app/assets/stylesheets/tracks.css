@@ -38,6 +38,50 @@ audio {
   padding: 1.75rem;
 }
 
+.track-hero {
+  width: 100%;
+  height: 450px;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.track-hero img {
+  width: 100%;
+  position: absolute;
+  top: -50%;
+  z-index: 0;
+}
+
+.track-hero h2 {
+  position: absolute;
+  top: 1.75rem;
+  left: 1.75rem;
+  margin: 0;
+  color: white;
+  font-weight: lighter;
+}
+
+.large-player {
+  display: block;
+}
+
+.track-hero audio {
+  position: absolute;
+  bottom: 25px;
+  margin: 0;
+}
+
+.track-hero audio::-webkit-media-controls-enclosure {
+    max-width: 95%; /*or inherit*/
+}
+
+.placeholder-image {
+  width: 70px;
+  height: 70px;
+  background: white;
+}
+
 .user-profile-pic {
   padding-left: 0;
 }
