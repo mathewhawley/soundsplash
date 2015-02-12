@@ -21,7 +21,7 @@
         <div class="row comment-field">
           <% if user_signed_in? %>
             <div class="large-2 column">
-            <%= image_tag @user.profile_picture.url %>
+              <%= link_to (image_tag @user.profile_picture.url), user_path(@track.user) %>
             </div>
           <% else %>
             <div class="large-2 column">
