@@ -6,9 +6,9 @@
   <div class="row">
     <div class="large-4 column user-info">
     <h3><%= @user.username %></h3>
-      <p><%= @user.email %></p>
       <p>Joined: <%= @user.created_at.strftime('%d %B %Y') %></p>
       <p>Last active: <%= @user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y') %></p>
+      <p><%= @user.email %></p>
       <p><%= @user.about %></p>
       <% if user_signed_in? && current_user.id == @user.id %>
         <p class="edit-profile-button"><%= link_to 'Edit My Profile', edit_user_registration_path(@user), :class => 'button radius' %></p>

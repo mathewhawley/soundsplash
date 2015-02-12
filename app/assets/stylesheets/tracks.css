@@ -1,3 +1,5 @@
+/* track listings */
+
 .track-list {
   margin-left: 0;
   margin-right: 0;
@@ -26,4 +28,45 @@
 audio {
   width: 100%;
   margin: .5rem 0 .25rem 0;
+}
+
+
+
+/* track show page */
+
+.track-show-wrapper {
+  padding: 1.75rem;
+}
+
+.user-profile-pic {
+  padding-left: 0;
+}
+
+.user-profile-pic > p {
+  margin: 0;
+}
+
+.user-pic-track-show img {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.comments-header {
+  line-height: .8;
+}
+
+.comment-field {
+  margin-bottom: 1.5rem;
+}
+
+.comment-field-margin {
+  padding: 0;
+}
+
+.comment-field-margin textarea {
+  height: 71px;
+}
+
+.button-align {
+  text-align: right;
 }

@@ -1,0 +1,22 @@
+.comment {
+  padding-top: .5rem;
+  border-top: 1px #666 solid;
+}
+
+.comment p {
+  font-size: .85rem;
+  color: #adadad;
+  margin-bottom: 0;
+}
+
+.row .comment-content {
+  color: #fff;
+}
+
+.comments-all {
+  margin-top: 1rem;
+}
+
+.comment-item {
+  margin-bottom: 1.5rem;
+}
