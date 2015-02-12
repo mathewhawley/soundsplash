@@ -73,7 +73,7 @@ audio {
 }
 
 .track-hero audio::-webkit-media-controls-enclosure {
-    max-width: 95%; /*or inherit*/
+  max-width: 95%; /*or inherit*/
 }
 
 .placeholder-image {
