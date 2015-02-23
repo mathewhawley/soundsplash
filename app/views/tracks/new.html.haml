@@ -1,0 +1,19 @@
+.form-area
+  %h3 Upload a track:
+  
+  = form_for @track do |f|
+  
+    .field
+      %p= f.label :name
+      %p= f.text_field :name
+    
+    .field
+      %p= f.label :track
+      %p= f.file_field :track
+
+    .field
+      %p= f.label :track_image
+      %p= f.file_field :track_image
+    
+    .actions
+      %p= f.submit 'Upload Track', :class => 'button radius'
