@@ -1,0 +1,46 @@
+.track-header
+  .track-hero
+    = image_tag @track.track_image.url
+    %h2= @track.name
+    .large-player
+      = audio_tag @track.track, controls: true, :class => 'track-info'
+
+.track-show-wrapper
+  .row
+    .large-4.column.user-profile-pic
+      = link_to (image_tag @track.user.profile_picture.url), user_path(@track.user), :class => "user-pic-track-show"
+      %p= link_to @track.user.username, user_path(@track.user)
+      %p.body-copy= "Member since: #{@track.user.created_at.strftime('%d %B %Y')}" 
+      %p.body-copy= "Last active: #{@track.user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y')}"
+    
+    .large-8.column
+      %h3.comments-header= "Comments: (#{@track.comments.count})"
+      .row.comment-field
+        - if user_signed_in?
+          .large-2.column
+            = link_to (image_tag @user.profile_picture.url), user_path(current_user)
+        - else
+          .large-2.column
+            .placeholder-image
+
+        .large-10.column.comment-field-margin
+          = form_for @comment do |f|
+            = f.hidden_field :track_id, value: @track.id
+            = f.text_area :content, placeholder: 'Write a comment...'
+            .actions.button-align
+              = f.submit 'Submit Comment', :class => 'button radius'
+      
+      .comments-all
+        - @comments.each do |comment|
+          .comment-item
+            .row
+              .large-2.column
+                = link_to (image_tag comment.user.profile_picture), user_path(comment.user)
+
+              .large-10.column.comment
+                %p
+                  = link_to comment.user.username, user_path(comment.user)
+                  says (#{comment.created_at.strftime('%I:%M %p, %d %B %Y')}):
+                %p.comment-content= comment.content
+                - if can? :destroy, comment
+                  %p= link_to 'Delete', comment_path(comment), method: :delete
