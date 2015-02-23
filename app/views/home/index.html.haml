@@ -1,0 +1,44 @@
+.hero-image
+  %p.welcome-message
+    Welcome to SoundSplash, an emerging community of music lovers and makers.
+
+.index-wrapper
+  .row
+    .large-8.column
+      %h3 All Tracks
+      %ul.track-list
+        - @tracks.each do |track|
+          .track-single
+            .row
+              %li.large-3.column
+                = link_to (image_tag track.track_image.url), track_path(track)
+              %li.large-9.column
+                = link_to track.name, track_path(track)
+              %li.large-9.column
+                = link_to track.user.username, user_path(track.user)
+              %li.large-9.column
+                = audio_tag track.track, controls: true
+              %li.large-9.column
+                = track.created_at.strftime('%d %B %Y')
+                | 
+                = link_to "Comments (#{track.comments.count})", track_path(track)
+    
+    .large-4.column
+      %h3 Users
+      %ul.user-list
+        - @users.each do |user|
+          .user-single
+            .row
+              %li.large-3.column.user-pic
+                = link_to (image_tag user.profile_picture.url), user_path(user)
+              %li.large-9.column.username
+                = link_to user.username, user_path(user)
+              %li.large-9.column
+                Member since:
+                = user.created_at.strftime('%d %B %Y')
+              %li.large-9.column
+                Last active:
+                = user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y')
+              %li.large-9.column
+                Number of uploads:
+                = user.tracks.count

@@ -1,0 +1,41 @@
+.cover-image
+  = image_tag @user.profile_picture.url, :class => "profile-picture"
+
+.user-profile-wrapper
+  .row
+    .large-4.column.user-info
+      %h3= @user.username
+      %p= "Joined: #{@user.created_at.strftime('%d %B %Y')}"
+      %p= "Last active: #{@user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y')}"
+      %p= "#{@user.email}"
+      %p= "#{@user.about}"
+      - if user_signed_in? && current_user.id == @user.id
+        %p.edit-profile-button
+          = link_to 'Edit My Profile', edit_user_registration_path(@user), :class => 'button radius'
+    .large-8.column
+      %h3 Tracks
+      %ul.track-list
+        - @user.tracks.order('created_at DESC').each do |track|
+          .track-single
+            .row
+              %li.large-3.column
+                = link_to (image_tag track.track_image.url), track_path(track)
+              %li.large-9.column.user-track-name
+                = link_to track.name, track_path(track)
+              %li.large-9.column
+                = track.created_at.strftime('%d %B %Y')
+              %li.large-9.column
+                = audio_tag track.track, controls: true
+              - if can? :destroy && :update, track
+                %li.large-9.column
+                  = link_to 'Delete', track_path(track), method: :delete
+                  |
+                  = link_to 'Edit', edit_track_path(track)
+                  |
+                  = link_to "Comments (#{track.comments.count})", track_path(track)
+              - else
+                %li.large-9.column
+                  = link_to "Comments (#{track.comments.count})", track_path(track)
+
+      
+      
