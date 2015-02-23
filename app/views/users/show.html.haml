@@ -7,8 +7,8 @@
       %h3= @user.username
       %p= "Joined: #{@user.created_at.strftime('%d %B %Y')}"
       %p= "Last active: #{@user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y')}"
-      %p= "#{@user.email}"
-      %p= "#{@user.about}"
+      %p= @user.email
+      %p= @user.about
       - if user_signed_in? && current_user.id == @user.id
         %p.edit-profile-button
           = link_to 'Edit My Profile', edit_user_registration_path(@user), :class => 'button radius'
