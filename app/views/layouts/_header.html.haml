@@ -10,8 +10,8 @@
           - if user_signed_in?
             = link_to "Logged in as #{current_user.username}"
             %ul.dropdown
-            %li= link_to 'Logout', destroy_user_session_path, :method => :delete
-            %li.active= link_to 'My Profile', user_path(current_user)
+              %li= link_to 'Logout', destroy_user_session_path, :method => :delete
+              %li.active= link_to 'My Profile', user_path(current_user)
           - else
             = link_to "Login/Register"
             %ul.dropdown
