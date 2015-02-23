@@ -25,7 +25,7 @@
               %li.large-9.column
                 = track.created_at.strftime('%d %B %Y')
               %li.large-9.column
-                = audio_tag track.track, controls: true
+                = audio_tag track.track, controls: true, :preload => 'metadata'
               - if can? :destroy && :update, track
                 %li.large-9.column
                   = link_to 'Delete', track_path(track), method: :delete
