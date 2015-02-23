@@ -12,7 +12,7 @@
             .row
               %li.large-3.column
                 = link_to (image_tag track.track_image.url), track_path(track)
-              %li.large-9.column
+              %li.large-9.column.track-name
                 = link_to track.name, track_path(track)
               %li.large-9.column
                 = link_to track.user.username, user_path(track.user)
