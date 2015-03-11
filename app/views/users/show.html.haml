@@ -5,9 +5,8 @@
   .row
     .large-4.column.user-info
       %h3= @user.username
-      %p= "Joined: #{@user.created_at.strftime('%d %B %Y')}"
-      %p= "Last active: #{@user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y')}"
-      %p= @user.email
+      %p= "(#{@user.following.count}) following | (#{@user.followers.count}) followers"
+      %p= mail_to @user.email
       %p= @user.about
       - if user_signed_in? && current_user.id == @user.id
         = link_to 'Edit my profile', edit_user_registration_path(@user)
