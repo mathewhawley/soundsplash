@@ -36,3 +36,9 @@
   display: inline-block;
   margin: 0;
 }
+
+#follow_form .button {
+  width: 95%;
+  font-weight: lighter;
+  padding: 0;
+}
