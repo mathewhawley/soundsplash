@@ -63,3 +63,21 @@
   height: 1.5rem;
   font-size: 1.25rem;
 }
+
+.following-stats {
+  margin-bottom: 1rem;
+}
+
+.following-stats p {
+  margin-bottom: 0;
+}
+
+.following, .followers {
+  width: 47%;
+  display: inline-block;
+}
+
+.following {
+  border-right: 1px solid #666;
+  margin-right: 4%;
+}
