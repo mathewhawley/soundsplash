@@ -34,11 +34,12 @@
               %li.large-9.column.username
                 = link_to user.username, user_path(user)
               %li.large-9.column
-                Member since:
-                = user.created_at.strftime('%d %B %Y')
+                %i{ :class => 'fa fa-users' }
+                &nbsp;
+                = user.followers.count
               %li.large-9.column
-                Last active:
-                = user.last_sign_in_at.strftime('%I:%M %p, %d %B %Y')
-              %li.large-9.column
-                Number of uploads:
+                Tracks:
                 = user.tracks.count
+              %li.large-9.column
+                %i{ :class => 'fa fa-clock-o' }
+                = user.last_sign_in_at.strftime('%H:%M %p, %d %B %Y')
