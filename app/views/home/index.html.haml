@@ -17,7 +17,7 @@
               %li.large-9.column
                 = link_to track.user.username, user_path(track.user)
               %li.large-9.column
-                = audio_tag track.track, controls: true, :preload => 'metadata'
+                = audio_tag track.track, controls: true, :preload => 'none'
               %li.large-9.column
                 = track.created_at.strftime('%d %B %Y')
                 | 

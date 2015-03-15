@@ -3,7 +3,7 @@
     = image_tag @track.track_image.url
     %h2= @track.name
     .large-player
-      = audio_tag @track.track, controls: true, :class => 'track-info', :preload => 'metadata'
+      = audio_tag @track.track, controls: true, :class => 'track-info', :preload => 'none'
 
 .track-show-wrapper
   .row
