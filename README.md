@@ -13,17 +13,24 @@ It was an opportunity to better learn and demonstrate my understanding of the MV
 * PostgreSQL
 
 ## Setup
-To run this app locally, make sure you have PostgreSQL up and running, then follow these steps in your terminal:
+To run this app locally, first clone the repository to your machine:
 
 ```
-$ git clone git@github.com:mathewhawley/soundsplash.git
+$ git clone https://github.com/mathewhawley/soundsplash.git
+```
+Go into the new directory, make sure you have PostgreSQL running and type in the following commands into your terminal:
+
+```
 $ rake db:create
 $ rake db:migrate
 $ rake db:seed
-$ bundle install
-$ rails s
 ```
-This project uses the built-in WEBrick 1.3.1 server, which defaults to port 3000. Open your browser and navigate to **localhost:3000**.
+Next, run a `$ bundle install` to install the necessary gems.
+
+Finally type in `$ rails s` to start the server.
+
+This project uses the _WEBrick 1.3.1_ web server, which defaults to port 3000. Open your browser and navigate to: http://localhost:3000.
+
 
 ## Demo
 You can visit the live site [here](http://soundsplash.herokuapp.com) — _best viewed in Chrome_.
