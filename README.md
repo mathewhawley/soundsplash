@@ -1,6 +1,5 @@
 # SoundSplash
 
-## Overview
 Soundsplash is a simple music sharing app, where users can upload their tracks, listen to others’ music, leave comments and follow other users.
 
 This was my first ever web app, completed after the first 4 weeks of General Assembly's [Web Development Immersive](https://generalassemb.ly/education/web-development-immersive) course.
