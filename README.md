@@ -23,7 +23,7 @@ $ rake db:seed
 $ bundle install
 $ rails s
 ```
-This project uses the built-in WEBrick 1.3.1 server, which defaults to port 3000. Open your browser and navigate to `localhost:3000`.
+This project uses the built-in WEBrick 1.3.1 server, which defaults to port 3000. Open your browser and navigate to **localhost:3000**.
 
 ## Demo
-You can visit the live site [here](http://soundsplash.herokuapp.com) (best viewed in Chrome).
+You can visit the live site [here](http://soundsplash.herokuapp.com) — _best viewed in Chrome_.
